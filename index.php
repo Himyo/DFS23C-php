@@ -18,7 +18,6 @@ $nomDuNouveauProfile = $nouveauProfile->getName();
 // echo '<br />';
 // echo "Le role du profile est: ".$nouveauProfile->getRole()->getName();
 
-echo "<h1>Essayer de créer la class Salary qui va implementer l'interface SalaryInterface. Essayer de trouver un moyen de faire varier la paie en fonction de la priorité </h1>";
 
 
 // echo '<br />';

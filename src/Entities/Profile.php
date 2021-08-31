@@ -2,14 +2,17 @@
 
 namespace Entities;
 
+use DateTime;
 use Interfaces\ProfileInterface;
 
-class Profile implements ProfileInterface {
+class Profile extends Salary implements ProfileInterface {
 
     private $firstname;
     private $lastname;
     private $age;
+
     private $role;
+    private $enrollDate;
 
     public function __construct(string $firstname, string $lastname, int $age, AbstractRole $role) {
        $this->firstname = $firstname; 
@@ -32,6 +35,11 @@ class Profile implements ProfileInterface {
     
     public function setRole(AbstractRole $role) {
         $this->role = $role;
+        return $this;
+    }
+
+    public function setEnrollDate(DateTime $date) {
+        $this->enrollDate = $date;
         return $this;
     }
 
