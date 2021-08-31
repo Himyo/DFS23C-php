@@ -29,5 +29,10 @@ class Profile implements ProfileInterface {
     public function getAge() {
         return $this->age;
     }
+    
+    public function setRole(AbstractRole $role) {
+        $this->role = $role;
+        return $this;
+    }
 
 }
