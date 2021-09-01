@@ -24,8 +24,6 @@ services:
     container_name: poo-db
     ports :
       - "3306:3306"
-    volumes:
-      - ./docker/db/dump.sql:/docker-entrypoint-initdb.d/dump.sql
     environment:
         - MYSQL_ROOT_PASSWORD=S3CR3T
         - MYSQL_DATABASE=design
@@ -40,11 +38,9 @@ services:
       - "8080:80"
     environment:
         - PMA_ARBITRARY=1
-        - MYSQL_ROOT_PASSWORD=S3CR3T
+        - MYSQL_ROOT_PASSWORD=root
         - MYSQL_DATABASE=design
         - MYSQL_USER=design-pat
         - MYSQL_PASSWORD=S3CR3T
     depends_on:
       - db
-
-      

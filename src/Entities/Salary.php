@@ -5,7 +5,7 @@ use Interfaces\SalaryInterface;
 
 class Salary implements SalaryInterface {
 
-    private $value;
+    private float $value;
 
     public function __construct($value)
     {

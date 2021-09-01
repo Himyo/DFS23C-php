@@ -3,14 +3,16 @@
 namespace Entities;
 
 abstract class AbstractRole {
-    protected $name;
-    protected $priority; 
+    protected string $name;
+    protected int $priority; 
 
-    public function getName() {
+    public function getName(): string {
         return $this->name;
     }
 
-    public function getPriority() {
+    public function getPriority(): int {
         return $this->priority;
     }
+
+ 
 }

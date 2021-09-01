@@ -9,7 +9,9 @@ class Director extends AbstractRole {
         $this->priority = 5;
     } 
     
-    public function giveSalary() {
-        return 2000000;
+    public function giveSalary(Profile $profile) {
+        $profileRole = $profile->getRole();
+        $salary = new Salary(2);
+        $profile->addSalary($salary);
     }
 }
