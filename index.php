@@ -12,11 +12,11 @@ $role = new Director();
 $nouveauProfile = new Profile($firstname, $lastname, $age, $role);
 $nomDuNouveauProfile = $nouveauProfile->getName();
 
-// echo "Hello, $nomDuNouveauProfile ";
-// echo '<br />';
-// echo "Encore Hello, ".$nomDuNouveauProfile;
-// echo '<br />';
-// echo "Le role du profile est: ".$nouveauProfile->getRole()->getName();
+echo "Hello, $nomDuNouveauProfile ";
+echo '<br />';
+echo "Encore Hello, ".$nomDuNouveauProfile;
+echo '<br />';
+echo "Le role du profile est: ".$nouveauProfile->getRole()->getName();
 
 
 
