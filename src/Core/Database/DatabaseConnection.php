@@ -5,6 +5,7 @@ namespace Core\Database;
 use Exception;
 use PDO;
 
+use Entities\Profile;
 class DatabaseConnection {
     private $pdo = null;
     private static $instance = null;
@@ -33,6 +34,14 @@ class DatabaseConnection {
     
     public function getAll($table) {
         return $this->pdo->query("SELECT * FROM $table");
+    }
+
+    public function saveProfile(Profile $profile) {
+        $firstname = $profile->getFirstname();
+        $lastname = $profile->getLastname();
+        $age= $profile->getAge();
+        $this->pdo->query("INSERT INTO Profile (firstname, lastname, age, role) VALUES ($firstname, $lastname, $age, 1)" );
+
     }
 }
 

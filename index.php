@@ -5,7 +5,7 @@ use Controllers\ProfileController;
 
 use Core\Database;
 
-$connection = Database::getConnection(); // Connection
+$connection = Database::getConnection(); // Connection to DB
 
 $controller = new ProfileController();
 

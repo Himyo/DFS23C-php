@@ -25,6 +25,14 @@ class Profile implements ProfileInterface {
         return $this->firstname." ".$this->lastname;
     }
 
+    public function getFirstname(): string {
+        return $this->firstname;
+    }
+
+    public function getLastname(): string {
+        return $this->lastname;
+    }
+
     public function getRole() {
        return $this->role; 
     }
