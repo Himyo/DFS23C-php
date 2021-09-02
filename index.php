@@ -3,9 +3,9 @@ require_once('./src/autoload.php');
 
 use Controllers\ProfileController;
 
-use Core\Database;
+use Core\Database\DatabaseConnection;
 
-$connection = Database::getConnection(); // Connection to DB
+$connection = DatabaseConnection::getConnection(); // Connection to DB
 
 $controller = new ProfileController();
 
@@ -21,7 +21,7 @@ if($route == '/create_developpeur') {
 }
 if($route == '/see_all_users') {
 
-    foreach($connection->query('SELECT * from Profile') as $row) {
+    foreach($connection->getAll('Profile') as $row) {
         print_r($row);
     }
     // echo $controller->getAllUsers();
