@@ -11,7 +11,7 @@ class Director extends AbstractRole {
     
     public function giveSalary(Profile $profile) {
         $profileRole = $profile->getRole();
-        $salary = new Salary(2);
+        $salary = new Salary(10000);
         $profile->addSalary($salary);
     }
 }

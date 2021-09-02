@@ -11,8 +11,7 @@ class Profile implements ProfileInterface {
     private string $age;
 
     private AbstractRole $role;
-    private $enrollDate;
-    // Salary[] $salaries
+
     protected array $salaries;
 
     public function __construct(string $firstname, string $lastname, int $age, AbstractRole $role) {
@@ -39,10 +38,6 @@ class Profile implements ProfileInterface {
         return $this;
     }
 
-    // public function setEnrollDate(DateTime $date) {
-    //     $this->enrollDate = $date;
-    //     return $this;
-    // }
     public function addSalary(Salary $salary) {
         $this->salaries[] = $salary;
     }
