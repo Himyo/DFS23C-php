@@ -6,19 +6,25 @@ use Interfaces\ProfileInterface;
 
 class Profile implements ProfileInterface {
 
-    private string $firstname;
-    private string $lastname;
-    private string $age;
+    private int $id; // $this->id
+    private string $firstname; // $this->firstname
+    private string $lastname; // $this->lastname
 
-    private AbstractRole $role;
+    private string $age; // $this->age
 
-    protected array $salaries;
+    private AbstractRole $role; // $this->role
 
-    public function __construct(string $firstname, string $lastname, int $age, AbstractRole $role) {
+    protected array $salaries; // $this->salaries
+
+    public function __construct(string $firstname, string $lastname, int $age) {
        $this->firstname = $firstname; 
        $this->lastname = $lastname; 
        $this->age = $age; 
-       $this->role = $role;
+    }
+
+    public function setId(int $id): Profile {
+        $this->id = $id;
+        return $this;
     }
 
     public function getName(): string {

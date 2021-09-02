@@ -1,41 +1,39 @@
 <?php
 require_once('./src/autoload.php');
 
+use Core\Routes\Router;
 use Controllers\ProfileController;
-
 use Core\Database\DatabaseConnection;
-
-$connection = DatabaseConnection::getConnection(); // Connection to DB
-
-$controller = new ProfileController();
-
-$route = $_SERVER['REQUEST_URI'];
-
-echo $route;
-if($route == '/create_developpeur') {
-    echo '<h1>Recruting</h1><br />';
-    echo '...Processing<br />';
-    $user = $controller->createDeveloppeur('Buddy', 'Rich', 104);
-
-    echo "Bonjour nouveau developpeur ".$user->getName();
-}
-if($route == '/see_all_users') {
-
-    foreach($connection->getAll('Profile') as $row) {
-        print_r($row);
-    }
-    // echo $controller->getAllUsers();
-}
-
-if($route == '/give_salary') {
-    // $controller->payroll();
-    echo '<h1>GIVE</h1>';
-}
-if($route == '/see_salary') {
-    // $controller->payroll();
-    echo '<h1>SALARY</h1>';
-}
+use Entities\Profile;
 
 
-// Route::get('/', ProfileController, 'index');
+$path = $_SERVER['REQUEST_URI'];
 
+// echo $route;
+
+// $id = Datebase::getConnection()->saveProfile($profile);
+// $controller = new ProfileController();
+// $method = 'index';
+// $controller->$method();
+
+$routes = [
+    '/' => ['ProfileController', 'index' ],
+
+    '/get_all_users' => ['ProfileController', 'all' ],
+
+    '/create_developpeur' => [ 'ProfileController', 'newProfile' ],
+
+    '/get_one_developpeur' => ['ProfileController', 'getOne']
+];
+// $routes['/'];
+// $routes['/get_all_users'];
+
+$router = new Router($routes);
+$router->run($path);
+// Essayer de créer une class Router qui prends en parametre un tableau de routes
+// chaque route correspond a ['<PATH>' => ['<Controller>', '<method>']] PAth = chemin, Controller = un des controllers, method = une methode du controller
+// Essayer de faire la fonction run =  run($_SERVER['REQUEST_URI']) en regardant ce qu'est la reflection;
+// Essayer de faire une route d'erreur 404
+
+
+// $router->run($_SERVER['REQUEST_URI']);

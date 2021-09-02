@@ -6,6 +6,7 @@ use Exception;
 use PDO;
 
 use Entities\Profile;
+
 class DatabaseConnection {
     private $pdo = null;
     private static $instance = null;
@@ -40,8 +41,11 @@ class DatabaseConnection {
         $firstname = $profile->getFirstname();
         $lastname = $profile->getLastname();
         $age= $profile->getAge();
-        $this->pdo->query("INSERT INTO Profile (firstname, lastname, age, role) VALUES ($firstname, $lastname, $age, 1)" );
-
+        $role = 1;
+        $sth = $this->pdo->prepare(
+            "INSERT INTO Profile (firstname, lastname, age, role) VALUES (:firstname, :lastname, :age, :role)" 
+        );
+        $sth->execute([':firstname' => $firstname, ':lastname' => $lastname, ':age' => $age, ':role' => $role]);
     }
 }
 
