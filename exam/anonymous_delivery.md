@@ -19,17 +19,18 @@
 > - int `id`
 > - string `firstname`
 > - string `lastname`
-> - int `vehiculeId`
+> - int `vehiculeId` (un seul par driver)
 
 > ### `Order`
 > - int `id`
 > - int `price`
-> - int `deliveryAddressId`
-> - int `pickupAddressId`
+> - int `deliveryAddressId` (une seule par order)
+> - int `pickupAddressId` (une seule par order)
 > - string `description`
 ---
 
 - Dans un premier temps recréer les entités manquantes. Commencer par créer un Vehicule.php, Address.php puis Driver.php et Order.php
+
 - Apres avoir créer ces entités trouver un moyen d'ajouter à toute les classes une proprieté qui sera commune à toute les entités `createdAt` qui aura pour valeur `date('d M Y')` ainsi qu'un getter `getCreatedAt`
 
 - Maintenant que les entités ont été créer on souhaite implementer la methode `getTableName` sur les entités qui va retourner le nom de la table correspondant à la class en BDD. Cette methode devra exister sur toute les presentes et futur entités donc on souhaite trouver le moyen de forcer les developpeurs à l'implementer. Trouvez une solution a cette problematique et ensuite mettez en place cette methode dans les differentes classes.
